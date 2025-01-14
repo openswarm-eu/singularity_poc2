@@ -1,0 +1,74 @@
+Bootstrap: docker
+From: ros:noetic
+
+%post
+
+    # fix prompts during installation
+    apt-get -y update
+    apt-get -y install sudo
+    echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
+    sudo apt-get install -y -q
+    DEBIAN_FRONTEND=noninteractive sudo apt-get -y install keyboard-configuration
+
+    # we need curl to add the PPAs later
+    # git handy when cloning inside the container
+    sudo apt-get -y install curl git
+
+    # install ROS
+    curl https://ctu-mrs.github.io/ppa-stable/add_ros_ppa.sh | bash
+    apt-get -y install ros-noetic-desktop-full
+
+    # install ROS-packages
+    apt-get install -y \
+      ros-$ROS_DISTRO-geographic-msgs \
+      ros-$ROS_DISTRO-teleop-twist-keyboard \
+      ros-$ROS_DISTRO-tf2-sensor-msgs \
+      ros-$ROS_DISTRO-robot-localization \
+      ros-$ROS_DISTRO-spatio-temporal-voxel-layer \
+      ros-$ROS_DISTRO-navigation \
+      ros-$ROS_DISTRO-teb-local-planner \
+      ros-$ROS_DISTRO-grid-map \
+      ros-$ROS_DISTRO-hector-nav-msgs \
+      ros-$ROS_DISTRO-pcl-ros \
+      ros-$ROS_DISTRO-pluginlib  \
+      ros-$ROS_DISTRO-pcl-conversions \
+      ros-$ROS_DISTRO-diagnostic-updater \
+      libeigen3-dev \
+      libxtst6 \
+      libpcap-dev \
+      libboost-all-dev \
+      libv4l-dev \
+      dbus \
+      cmake \
+      python3-wstool \
+      python3-catkin-tools \
+      libarmadillo-dev
+
+
+    # install the MRS UAV System
+    curl https://ctu-mrs.github.io/ppa-stable/add_ppa.sh | bash
+    apt-get -y install ros-noetic-mrs-uav-system-full
+
+    # location for the apptainer files
+    export MRS_LOCATION=/opt/mrs
+    mkdir -p $MRS_LOCATION
+
+    # link configuration file for the MRS Apptainer
+    ln -s $MRS_LOCATION/host/99-mrs_env.sh /.singularity.d/env/99-mrs_env.sh
+
+    # link configuration file for the linux-setup environment
+    # ln -s $MRS_LOCATION/host/99-linux_setup_env.sh /.singularity.d/env/99-linux_setup_env.sh
+
+%environment
+    export LC_ALL=C
+
+%runscript
+  CMD="${@}"
+
+  if [ -z "${CMD}" ]; then
+    /bin/bash --login
+  else
+    /bin/bash --login -c "${CMD}"
+  fi
+
+  exit 0

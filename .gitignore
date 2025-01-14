@@ -1,0 +1,13 @@
+*.bag
+*.bak
+*.swp
+*.swo
+*.sif
+wrapper.sh
+.vscode/
+.catkin_tools/
+.catkin_workspace
+build/
+devel/
+data/
+logs/

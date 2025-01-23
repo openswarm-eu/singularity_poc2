@@ -1,4 +1,5 @@
 *.bag
+*.zip
 *.bak
 *.swp
 *.swo
@@ -12,7 +13,5 @@ devel/
 data/
 logs/
 
-src/*
-!src/user_ros_workspace/
-src/user_ros_workspace/*
-!src/user_ros_workspace/.rosinstall
+user_ros_workspace/src/*
+!user_ros_workspace/src/.rosinstall

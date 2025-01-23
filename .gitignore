@@ -13,5 +13,5 @@ devel/
 data/
 logs/
 
-user_ros_workspace/src/*
+src/*
 !user_ros_workspace/src/.rosinstall

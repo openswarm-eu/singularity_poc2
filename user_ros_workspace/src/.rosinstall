@@ -1,0 +1,56 @@
+- git:
+    local-name: nimbro_network
+    uri: https://github.com/openswarm-eu/nimbro_network.git
+    version: main
+- git:
+    local-name: dcl-slam
+    uri: https://github.com/openswarm-eu/dcl-slam.git
+    version: main
+- git:
+    local-name: dcl-lio-sam
+    uri: https://github.com/openswarm-eu/dcl-lio-sam.git
+    version: main
+- git:
+   local-name: mrs_openswarm_simulation
+   uri: https://github.com/openswarm-eu/mrs_openswarm_simulation.git
+   version: main
+- git:
+   local-name: mrs_openswarm_utils
+   uri: https://github.com/openswarm-eu/mrs_openswarm_utils.git
+   version: main
+- git:
+   local-name: gflags_catkin
+   uri: https://github.com/ethz-asl/gflags_catkin.git
+   version: master
+- git:
+   local-name: glog_catkin
+   uri: https://github.com/ethz-asl/glog_catkin.git
+   version: master
+- git:
+   local-name: eigen_catkin
+   uri: https://github.com/ethz-asl/eigen_catkin.git
+   version: 00b5eb2
+- git:
+   local-name: gtsam_catkin
+   uri: https://github.com/ethz-asl/gtsam_catkin.git
+   version: ecf6a04
+- git:
+   local-name: catkin_simple
+   uri: https://github.com/catkin/catkin_simple.git
+   version: 0e62848
+- git:
+   local-name: metis_catkin
+   uri: https://github.com/ethz-asl/metis_catkin.git
+   version: c5c839c
+- git:
+   local-name: distributed_mapper
+   uri: https://github.com/PengYu-Team/distributed_mapper_catkin.git
+   version: 5f4ce8e
+- git:
+   local-name: livox_ros_driver
+   uri: https://github.com/Livox-SDK/livox_ros_driver.git
+   version: 880c46a
+- git:
+   local-name: libnabo
+   uri: https://github.com/ethz-asl/libnabo.git
+   version: 2cc2650

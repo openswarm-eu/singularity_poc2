@@ -3,7 +3,7 @@
 *.bak
 *.swp
 *.swo
-*.sif
+#*.sif
 wrapper.sh
 .vscode/
 .catkin_tools/
@@ -13,5 +13,8 @@ devel/
 data/
 logs/
 
-src/*
+images/*
+!images/README.md
+
+user_ros_workspace/src/*
 !user_ros_workspace/src/.rosinstall

@@ -66,19 +66,19 @@
    local-name: libnabo
    uri: https://github.com/ethz-asl/libnabo.git
    version: 2cc2650
-- git:
-   local-name: lslidar_c16
-   uri: https://gitlab.ingeniarius.pt/ingeniarius_common/sensor_drivers/ros_1/lslidar_c16.git
-   version: V3.3.1_230313
-- git:
-   local-name: uwb_msgs
-   uri: https://gitlab.ingeniarius.pt/5gsmartfact/uwb/uwb_msgs.git
-   version: master
-- git:
-   local-name: uwb_odom_publisher
-   uri: https://gitlab.ingeniarius.pt/5gsmartfact/uwb/uwb_odom_publisher.git
-   version: main
-- git:
-   local-name: nlink_parser
-   uri: https://github.com/nooploop-dev/nlink_parser.git
-   version: main
+# - git:
+#    local-name: lslidar_c16
+#    uri: https://gitlab.ingeniarius.pt/ingeniarius_common/sensor_drivers/ros_1/lslidar_c16.git
+#    version: V3.3.1_230313
+# - git:
+#    local-name: uwb_msgs
+#    uri: https://gitlab.ingeniarius.pt/5gsmartfact/uwb/uwb_msgs.git
+#    version: master
+# - git:
+#    local-name: uwb_odom_publisher
+#    uri: https://gitlab.ingeniarius.pt/5gsmartfact/uwb/uwb_odom_publisher.git
+#    version: main
+# - git:
+#    local-name: nlink_parser
+#    uri: https://github.com/nooploop-dev/nlink_parser.git
+#    version: main

@@ -30,8 +30,9 @@ MRS Apptainer will run on the following operating systems
 
 | **build script**                                                           | **description**                                                                         |
 |----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| [recipes/stable_from_docker/build.sh](recipes/stable_from_docker/build.sh) | installs the latest [Docker Image](https://hub.docker.com/r/ctumrs/mrs_uav_system/tags) |
-| [recipes/stable_from_apt/build.sh](recipes/stable_from_apt/build.sh)       | installs directly from the [stable PPA](https://github.com/ctu-mrs/ppa-stable)          |
+| [recipes/stable_from_apt_openswarm/build.sh](recipes/stable_from_apt_openswarm/build.sh) | installs the latest OpenSwarm Image |
+<!-- | [recipes/stable_from_docker/build.sh](recipes/stable_from_docker/build.sh) | installs the latest [Docker Image](https://hub.docker.com/r/ctumrs/mrs_uav_system/tags) |
+| [recipes/stable_from_apt/build.sh](recipes/stable_from_apt/build.sh)       | installs directly from the [stable PPA](https://github.com/ctu-mrs/ppa-stable)          | -->
 
 3. Copy the [example_wrapper.sh](./example_wrapper.sh) (versioned example) into `wrapper.sh` (.gitignored). It will allow you to configure the wrapper for yourself. When copying the `example_wrapper.sh` outside of the `mrs_apptainer` folder, the `MRS_APPTAINER_PATH` variable within the script needs to be pointed to the correct location of the repository.
 5. Run the Apptainer container by issuing:
@@ -68,6 +69,41 @@ The container fulfills the dependencies.
 To start the software, do so from within the container:
 ```bash
 [MRS Apptainer] user@hostname:~$ cd ~/user_ros_workspace/src/mrs_core_examples/cpp/waypoint_flier/tmux
+[MRS Apptainer] user@hostname:~$ ./start.sh
+```
+
+## OpenSwarm Project
+After creating the image using the latest version of the Openswarm recipe, you need to follow these steps:
+
+1. Run the Apptainer container by issuing:
+```bash
+user@hostname:~$ cd singularity_poc2/
+user@hostname:~/singularity_poc2$./wrapper.sh
+```
+Now, you should see the terminal prompt of the apptainer container, similar to this:
+```bash
+[MRS Apptainer] user@hostname:~$
+```
+
+2. Install ROS-packages, in addition to those already installed in the recipe:
+```bash
+[MRS Apptainer] user@hostname:~/singularity_poc2$ make install-sys
+```
+
+3. Install ROS-packages, in addition to those already installed in the recipe:
+```bash
+[MRS Apptainer] user@hostname:~/singularity_poc2$ make build
+```
+
+4. Source the new workspace:
+```bash
+[MRS Apptainer] user@hostname:~/singularity_poc2$ cd user_ros_workspace/
+[MRS Apptainer] user@hostname:~/singularity_poc2/user_ros_workspace$ source devel/setup.bash
+```
+
+To start the simulation with three drones, do so from within the container:
+```bash
+[MRS Apptainer] user@hostname:~$ cd ~/user_ros_workspace/src/mrs_openswarm_simulation/tmux/three_drones_swarm/
 [MRS Apptainer] user@hostname:~$ ./start.sh
 ```
 

@@ -20,3 +20,6 @@ fly_six:
 
 fly_nine:
 	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/nine_drones_swarm/start.sh
+	
+cp:
+	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start_cp.sh

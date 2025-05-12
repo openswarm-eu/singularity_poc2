@@ -47,7 +47,9 @@ From: ros:noetic
       python3-wstool \
       python3-catkin-tools \
       libarmadillo-dev \
-      geographiclib-tools
+      geographiclib-tools \
+      libqt5serialport5-dev
+
 
 
     # install the MRS UAV System

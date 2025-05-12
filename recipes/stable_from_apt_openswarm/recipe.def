@@ -21,6 +21,10 @@ From: ros:noetic
     # install ROS-packages
     apt-get install -y \
       ros-$ROS_DISTRO-geographic-msgs \
+      ros-$ROS_DISTRO-geodesy \
+      ros-$ROS_DISTRO-smach \
+      ros-$ROS_DISTRO-smach-ros \
+      ros-$ROS_DISTRO-executive-smach \
       ros-$ROS_DISTRO-teleop-twist-keyboard \
       ros-$ROS_DISTRO-tf2-sensor-msgs \
       ros-$ROS_DISTRO-robot-localization \
@@ -42,7 +46,8 @@ From: ros:noetic
       cmake \
       python3-wstool \
       python3-catkin-tools \
-      libarmadillo-dev
+      libarmadillo-dev \
+      geographiclib-tools
 
 
     # install the MRS UAV System

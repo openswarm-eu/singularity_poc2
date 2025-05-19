@@ -50,6 +50,14 @@ From: ros:noetic
       geographiclib-tools \
       libqt5serialport5-dev
 
+    # other useful tools
+    apt-get install -y \
+        python3-pip
+
+    # python dependencies of the system
+    pip install \
+        utm \
+        geographiclib
 
 
     # install the MRS UAV System

@@ -57,7 +57,12 @@ From: ros:noetic
     # python dependencies of the system
     pip install \
         utm \
-        geographiclib
+        geographiclib \
+        numpy==1.22 \
+        onnxruntime \
+        opencv-python \
+        cv-bridge \
+        pandas
 
 
     # install the MRS UAV System

@@ -9,11 +9,20 @@ install-sys:
 fly:
 	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start.sh
 
+fly_ferox:
+	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start_ferox.sh
+
 fly_one:
 	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/one_drone_3dlidar/start.sh
 
+fly_one2:
+	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/one_drone_3dlidar_v2/start.sh
+
 fly_three:
 	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/three_drones_swarm/start.sh
+
+fly_three2:
+	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/three_drones_swarm_v2/start.sh
 
 fly_six:
 	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/six_drones_swarm/start.sh
@@ -23,3 +32,6 @@ fly_nine:
 	
 cp:
 	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start_cp.sh
+
+cp_sim:
+	./user_ros_workspace/src/mrs_openswarm_hdi/tmux/just_flying/start_cp_sim.sh

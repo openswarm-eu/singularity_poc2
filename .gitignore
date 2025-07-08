@@ -18,3 +18,5 @@ images/*
 
 user_ros_workspace/src/*
 !user_ros_workspace/src/.rosinstall
+
+GoProOpen/*

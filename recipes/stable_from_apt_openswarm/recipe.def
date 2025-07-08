@@ -58,10 +58,11 @@ From: ros:noetic
     pip install \
         utm \
         geographiclib \
-        numpy==1.22 \
         onnxruntime \
+        tflite-runtime \
         opencv-python \
         cv-bridge \
+        numpy==1.24.4 \
         pandas
 
 

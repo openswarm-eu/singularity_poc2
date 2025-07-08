@@ -31,7 +31,7 @@ fly_nine:
 	./user_ros_workspace/src/mrs_openswarm_simulation/tmux/nine_drones_swarm/start.sh
 	
 cp:
-	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start_cp.sh
+	./user_ros_workspace/src/mrs_openswarm_hdi/tmux/just_flying/start_cp.sh
 
 cp_sim:
 	./user_ros_workspace/src/mrs_openswarm_hdi/tmux/just_flying/start_cp_sim.sh

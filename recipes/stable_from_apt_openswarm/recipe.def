@@ -48,7 +48,15 @@ From: ros:noetic
       python3-catkin-tools \
       libarmadillo-dev \
       geographiclib-tools \
-      libqt5serialport5-dev
+      libqt5serialport5-dev \
+      libboost${BOOST_VERSION}-dev \
+      libmetis-dev
+
+    apt-get install -y software-properties-common
+    add-apt-repository ppa:borglab/gtsam-release-4.0
+    apt install -y \
+        libgtsam-dev \
+        libgtsam-unstable-dev
 
     # other useful tools
     apt-get install -y \

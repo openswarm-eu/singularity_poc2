@@ -33,10 +33,16 @@ CLEAN_ENV=true # true: will clean the shell environment before runnning containe
 
 USE_NVIDIA=false # true: will tell Apptainer that it should use nvidia graphics. Does not work every time.
 
+# defines the path for persistent storage of datasets
+BAGS_PATH="$HOME/bag_files"
+
 # the following are mutually exclusive
 OVERLAY=false  # true: will load persistant overlay (overlay can be created with scripts/create_overlay.sh)
 WRITABLE=false # true: will run it as --writable (works with --sandbox containers, image can be converted with scripts/convert_sandbox.sh)
 FAKEROOT=false # true: emulate root inside the container
+
+# create a directory to mount into the container to hold the output datasets
+[ -d "$BAGS_PATH" ] || mkdir "$BAGS_PATH"
 
 # defines what should be mounted from the host to the container
 # [TYPE], [SOURCE (host)], [DESTINATION (container)]
@@ -49,10 +55,14 @@ MOUNTS=(
   # mount the MRS shell additions into the container, DO NOT MODIFY
   "type=bind" "$MOUNT_PATH" "/opt/mrs/host"
 
-  # mount folders to facilitate Xserver piping
-  "type=bind" "/tmp/.X11-unix" "/tmp/.X11-unix"
-  "type=bind" "/dev/dri" "/dev/dri"
-  "type=bind" "$HOME/.Xauthority" "/home/$USER/.Xauthority"
+  # mount the datasets' directory into the container, DO NOT MODIFY
+  # (this is essential to make the output datasets persistent)
+  "type=bind" "$BAGS_PATH" "/home/$USER/bag_files"
+
+  # # mount folders to facilitate Xserver piping
+  # "type=bind" "/tmp/.X11-unix" "/tmp/.X11-unix"
+  # "type=bind" "/dev/dri" "/dev/dri"
+  # "type=bind" "$HOME/.Xauthority" "/home/$USER/.Xauthority"
 )
 
 ## | ------------------ advanced user config ------------------ |
@@ -193,7 +203,7 @@ fi
 # this will set $DISPLAY in the container to the same value as on your host machine
 export APPTAINERENV_DISPLAY=$DISPLAY
 
-xhost + > /dev/null 2>&1
+# xhost + > /dev/null 2>&1
 
 $EXEC_CMD apptainer $ACTION \
   $NVIDIA_ARG \
@@ -208,4 +218,4 @@ $EXEC_CMD apptainer $ACTION \
   $CONTAINER_PATH \
   $CMD
 
-xhost - > /dev/null 2>&1
+# xhost - > /dev/null 2>&1

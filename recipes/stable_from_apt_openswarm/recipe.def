@@ -18,6 +18,10 @@ From: ros:noetic
     curl https://ctu-mrs.github.io/ppa-stable/add_ros_ppa.sh | bash
     apt-get -y install ros-noetic-desktop-full
 
+    echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
+
+    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
     # install ROS-packages
     apt-get install -y \
       ros-$ROS_DISTRO-geographic-msgs \
@@ -58,12 +62,15 @@ From: ros:noetic
         libgtsam-dev \
         libgtsam-unstable-dev
 
+    apt-get -y update
     # other useful tools
     apt-get install -y \
-        python3-pip
+        python3-pip \
+        libedgetpu1-std 
 
     # python dependencies of the system
     pip install \
+        pycoral \
         utm \
         geographiclib \
         onnxruntime \
@@ -72,6 +79,9 @@ From: ros:noetic
         cv-bridge \
         numpy==1.24.4 \
         pandas
+
+    pip install --upgrade --extra-index-url https://google-coral.github.io/py-repo/ pycoral
+    pip install --upgrade tflite-runtime
 
 
     # install the MRS UAV System

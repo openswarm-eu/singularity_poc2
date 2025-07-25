@@ -21,7 +21,7 @@
 - git:
    local-name: mrs_openswarm_utils
    uri: https://github.com/openswarm-eu/mrs_openswarm_utils.git
-   version: main
+   version: main_dcl
 - git:
    local-name: mrs_octomap_planner
    uri: https://github.com/openswarm-eu/mrs_octomap_planner.git
@@ -29,7 +29,7 @@
 - git:
    local-name: swarm_formation
    uri: https://github.com/openswarm-eu/swarm_formation.git
-   version: main
+   version: main_v1
 - git:
    local-name: gflags_catkin
    uri: https://github.com/ethz-asl/gflags_catkin.git

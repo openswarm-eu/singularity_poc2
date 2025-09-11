@@ -6,6 +6,9 @@ build:
 install-sys:
 	wstool update -j ${n_processes} -t user_ros_workspace/src/
 
+swarm:
+	./user_ros_workspace/src/mrs_openswarm_real/tmux/openswarm/start.sh
+
 fly:
 	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start.sh
 

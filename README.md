@@ -305,3 +305,9 @@ rm -rf /tmp/apptainer
 If you encounter "**No loop devices available**" problem while running apptainer:
  * first try to update apptainer to the newest version and reboot your machine,
  * if this does not help, please add `GRUB_CMDLINE_LINUX="max_loop=256"` into `/etc/default/grub` and reboot your machine.
+
+# Acknowledgement
+
+Part of the source code in this repository is developed within the frame and for the purpose of the OpenSwarm project. This project has received funding from the European Unioan's Horizon Europe Framework Programme under Grant Agreement No. 101093046.
+
+![OpenSwarm - Funded by the European Union](logos/ack.png)

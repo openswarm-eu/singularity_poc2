@@ -9,6 +9,9 @@ install-sys:
 swarm:
 	./user_ros_workspace/src/mrs_openswarm_real/tmux/openswarm/start.sh
 
+forest:
+	./user_ros_workspace/src/mrs_openswarm_real/tmux/forest/start.sh
+
 fly:
 	./user_ros_workspace/src/mrs_openswarm_real/tmux/just_flying/start.sh
 
